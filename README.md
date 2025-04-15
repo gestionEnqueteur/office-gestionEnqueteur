@@ -25,3 +25,25 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Gerer les enqueteurs:  
+
+ MatTable pour la liste des enquêteurs
+
+ MatDialog pour créer un nouvel enquêteur
+
+ MatExpansionPanel ou MatAccordion pour voir les détails d’un enquêteur
+
+ MatChips pour indiquer le statut des saisies
+
+ MatIcon, MatButton, MatCard pour la présentation globale
+
+## Suivre les quotats : 
+
+Deux boutons Quotas par ligne et Quotas par train
+ 
+Deux tableaux différents avec affichage conditionnel
+
+Filtres simples (ligne, enquêteur, date)
+
+Affichage visuel des quotas (couleurs, icônes)

@@ -1,1 +1,65 @@
 <p>gestion-vacation works!</p>
+
+<h2>Gérer les vacations</h2>
+
+<mat-form-field appearance="outline" class="mb-4">
+  <mat-label>Thème de tableau</mat-label>
+  <mat-select [(ngModel)]="selectedTheme">
+    <mat-option value="material">Material Table</mat-option>
+    <mat-option value="excel-style">Style Excel</mat-option>
+    <mat-option value="dense">Tableau compact</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- THÈME 1 : Material Table classique -->
+<div *ngIf="selectedTheme === 'material'" class="theme-container">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z4">
+
+    <ng-container *ngFor="let col of colonnes" [matColumnDef]="col">
+      <mat-header-cell *matHeaderCellDef>{{ col }}</mat-header-cell>
+      <mat-cell *matCellDef="let element">---</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="colonnes"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: colonnes;"></mat-row>
+  </mat-table>
+</div>
+
+<!-- THÈME 2 : Tableau style Excel avec bordures nettes -->
+<div *ngIf="selectedTheme === 'excel-style'" class="excel-style">
+  <table>
+    <thead>
+    <tr>
+      <th *ngFor="let col of colonnes">{{ col }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of dataSource">
+      <td *ngFor="let col of colonnes">---</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- THÈME 3 : Tableau compact (type ligne de commande) -->
+<div *ngIf="selectedTheme === 'dense'" class="dense-style">
+  <table>
+    <thead>
+    <tr>
+      <th *ngFor="let col of colonnes">{{ col }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of dataSource">
+      <td *ngFor="let col of colonnes">---</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ajouter-course">
+  <button mat-flat-button color="primary" (click)="ajouterCourse()">
+    <mat-icon>add</mat-icon>
+    Ajouter une course à la volée
+  </button>
+</div>

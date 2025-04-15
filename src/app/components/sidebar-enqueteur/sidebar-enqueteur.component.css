@@ -1,0 +1,9 @@
+mat-nav-list {
+  width: 250px;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+a.mat-list-item {
+  font-weight: 500;
+}

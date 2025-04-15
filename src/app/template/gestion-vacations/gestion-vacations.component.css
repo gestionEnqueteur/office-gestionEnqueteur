@@ -1,0 +1,29 @@
+.theme-container {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.excel-style table,
+.dense-style table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.excel-style th, .excel-style td,
+.dense-style th, .dense-style td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+.dense-style td, .dense-style th {
+  font-size: 12px;
+  padding: 4px;
+}
+
+.ajouter-course {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}

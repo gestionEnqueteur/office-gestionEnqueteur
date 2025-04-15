@@ -1,8 +1,14 @@
 
-<main class="main">
-  <app-sidebar></app-sidebar>
+<div class="dashboard">
+  <h2>Bienvenue dans l'espace de gestion</h2>
+  <p>Choisissez une action :</p>
 
-  <section class="content">
-    <router-outlet></router-outlet>
-  </section>
-</main>
+  <button mat-raised-button color="accent" routerLink="/">
+    Accéder à l'espace Responsable
+  </button>
+
+  <button mat-raised-button color="primary" routerLink="/espace-enqueteur">
+    Accéder à l'espace Enquêteur
+  </button>
+</div>
+<router-outlet></router-outlet>

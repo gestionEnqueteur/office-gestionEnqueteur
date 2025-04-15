@@ -1,0 +1,38 @@
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  padding-left: 16px;
+}
+
+.liste-enqueteurs, .details-enqueteur {
+  margin: 16px;
+  padding: 16px;
+}
+
+.vacation-details {
+  padding-left: 16px;
+}
+
+.vacation-item {
+  margin-bottom: 12px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-left: 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.chip-valid {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.chip-error {
+  background-color: #ffcdd2;
+  color: #c62828;
+}

@@ -1,0 +1,28 @@
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  margin-bottom: 1rem;
+  max-width: 300px;
+}
+
+.quota-table {
+  padding: 1rem;
+}
+
+.ok {
+  color: green;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ko {
+  color: red;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
