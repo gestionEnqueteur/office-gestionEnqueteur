@@ -47,3 +47,8 @@ Deux tableaux différents avec affichage conditionnel
 Filtres simples (ligne, enquêteur, date)
 
 Affichage visuel des quotas (couleurs, icônes)
+
+## convertir excel en json 
+
+bash 
+```npm install xlsx```
