@@ -1,1 +1,59 @@
-<p>planning works!</p>
+<h2>Vue 1 : Tableau hebdo</h2>
+<table mat-table [dataSource]="planningData" class="mat-elevation-z2 full-width">
+  <ng-container matColumnDef="semaine">
+    <th mat-header-cell *matHeaderCellDef>Semaine</th>
+    <td mat-cell *matCellDef="let row">{{ row.semaine }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lundi">
+    <th mat-header-cell *matHeaderCellDef>Lundi</th>
+    <td mat-cell *matCellDef="let row">{{ row.lundi }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mardi">
+    <th mat-header-cell *matHeaderCellDef>Mardi</th>
+    <td mat-cell *matCellDef="let row">{{ row.mardi }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mercredi">
+    <th mat-header-cell *matHeaderCellDef>Mercredi</th>
+    <td mat-cell *matCellDef="let row">{{ row.mercredi }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<h2 class="mt-4">Vue 2 : Timeline</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let day of timeline">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ day.date }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+      <li *ngFor="let item of day.vacations">
+        🕐 {{ item.time }} — {{ item.description }}
+      </li>
+    </ul>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<h2 class="mt-4">Vue 3 : Cartes journalières</h2>
+<div class="card-grid">
+  <mat-card *ngFor="let day of timeline">
+    <mat-card-title>{{ day.date }}</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="day.vacations.length; else noVac">
+        <ul>
+          <li *ngFor="let item of day.vacations">
+            🕐 {{ item.time }} – {{ item.description }}
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noVac>
+        <p>❌ Aucune vacation</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

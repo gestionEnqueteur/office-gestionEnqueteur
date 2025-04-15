@@ -6,7 +6,7 @@ import {MatButton} from "@angular/material/button";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DashboardComponent, MatButton, RouterLink],
+  imports: [RouterOutlet, DashboardComponent, MatButton, RouterLink, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
