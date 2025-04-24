@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { excelTimeToString, excelDateToString } from '../shared/excel-helper';
 
 export interface VacationData {
   pds: string;
@@ -35,23 +36,33 @@ export class ExcelService {
 
       reader.onload = (e: ProgressEvent<FileReader>) => {
         try {
+          // Récupère le résultat de la lecture du fichier (peut être string ou ArrayBuffer)
           const binaryStr = e.target?.result;
+
+          // on verif le format
           if (typeof binaryStr !== 'string' && !(binaryStr instanceof ArrayBuffer)) {
             throw new Error('Format de fichier non supporté');
           }
 
+          // Lit le fichier Excel (XLSX) en tant que "binary"
           const workbook = XLSX.read(binaryStr, { type: 'binary' });
+
+          // On prend la première feuille (sheet) du fichier
           const sheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[sheetName];
 
+           // On convertit la feuille en tableau de lignes (chaque ligne est un tableau)
           const jsonData = XLSX.utils.sheet_to_json<(string | number)[]>(worksheet, { header: 1 });
 
+          // Première ligne = en-têtes des colonnes (headers)
           const headers = jsonData[0] as string[];
+
+          // Pour chaque ligne suivante (chaque ligne représente une vacation)
           const rows = jsonData.slice(1).map((row): VacationData => {
             const obj = {} as VacationData;
 
             headers.forEach((header, index) => {
-              (obj as any)[header] = row[index]; // Une micro-astuce tolérée ici
+              (obj as any)[header] = row[index];   // on attribue la valeur à la clé correspondante
             });
 
             return obj;
